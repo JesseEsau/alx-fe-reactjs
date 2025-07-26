@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import {Route, Routes} from 'react-router-dom'
+import { BrowserRouter, Route, Routes} from 'react-router-dom'
 import './App.css'
 import RecipeList  from './components/RecipeList'
 import AddRecipeForm from './components/AddRecipeForm'
