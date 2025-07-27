@@ -5,6 +5,8 @@ import RecipeList  from './components/RecipeList'
 import AddRecipeForm from './components/AddRecipeForm'
 import RecipeDetails from './components/RecipeDetails'
 import SearchBar from './components/SearchBar'
+import FavoritesList from './components/FavoritesList'
+import RecommendationsList from './components/RecomendationsList'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -19,6 +21,8 @@ function App() {
           <SearchBar />
           <RecipeList />
           <AddRecipeForm />
+          <FavoritesList />
+          <RecommendationsList />
         </>
         } />
         <Route path='/recipes/:id' element={<RecipeDetails />} />
