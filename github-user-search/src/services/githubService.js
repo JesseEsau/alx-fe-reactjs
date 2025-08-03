@@ -3,16 +3,23 @@ import axios from 'axios';
 const BASE_URL = 'https://api.github.com/users/';
 const token = import.meta.env.VITE_GITHUB_API_KEY;
 
-export const fetchUserData = async (username) => {
-    try {
-        const headers = token ? { Authorization: `Bearer ${token}` } : {};
+export const fetchAdvancedUsers = async ({ username, location, minRepos }) => {
+    let query = '';
 
-        const response = await axios.get(`${BASE_URL}${username}`, { headers });
-        return response.data;
+    if (username) query += `${username} in:login`;
+    if (location) query += ` location:${location}`;
+    if (minRepos) query += ` repos:>=${minRepos}`;
+
+    const url = `/search/users?q=${encodeURIComponent(query)}&per_page=10`;
+
+    const token = import.meta.env.VITE_GITHUB_API_KEY;
+    const headers = token ? { Authorization: `Bearer ${token}` } : {};
+
+    try {
+        const response = await axios.get(`https://api.github.com${url}`, { headers });
+        return response.data.items;
     } catch (error) {
-        if (error.response && error.response.status === 404) {
-            throw new Error('User not found');
-        }
-        throw new Error('Failed to fetch user data');
+        throw new Error('Search failed');
     }
+
 };
