@@ -3,7 +3,7 @@ import axios from 'axios';
 const BASE_URL = 'https://api.github.com/users/';
 const token = import.meta.env.VITE_GITHUB_API_KEY;
 
-export const fetchGitHubUser = async (username) => {
+export const fetchUserData = async (username) => {
     try {
         const headers = token ? { Authorization: `Bearer ${token}` } : {};
 
