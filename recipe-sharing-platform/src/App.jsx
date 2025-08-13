@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes} from "react-router-dom"
 import './App.css'
 import HomePage from './components/HomePage'
 import RecipeDetail from "./components/RecipeDetail"
+import AddRecipePage from "../AddRecipePage"
 
 function App() {
 
@@ -10,6 +11,8 @@ function App() {
     <>
       <div className='bg-blue-500 '>
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora labore mollitia cumque doloribus, perspiciatis harum ab quod eius, maiores soluta eaque reprehenderit ullam illum quisquam, sit fugit beatae. Voluptatibus, rem.</p>
+
+        <AddRecipePage />
       </div>
       <Router>
       <div className="bg-gray-100 min-h-screen">
