@@ -46,7 +46,7 @@ function AddRecipeForm({ onSubmit }) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="max-w-xl mx-auto p-6 bg-green-500 rounded-lg shadow-lg space-y-5"
+      className="max-w-xl mx-auto p-6 bg-gray-500 rounded-lg shadow-lg space-y-5"
     >
       <h2 className="text-2xl font-bold text-center text-gray-800">
         Add New Recipe
