@@ -6,6 +6,9 @@ export default function RegistrationForm() {
     email: "",
     password: "",
   });
+  const username = formData.username;
+  const email = formData.email;
+  const password = formData.password;
 
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
@@ -21,7 +24,7 @@ export default function RegistrationForm() {
     e.preventDefault();
 
     // Basic validation
-    if (!formData.username || !formData.email || !formData.password) {
+    if (!username || !email || !password) {
       setError("All fields are required!");
       return;
     }
@@ -58,7 +61,7 @@ export default function RegistrationForm() {
           type="text"
           name="username"
           placeholder="Username"
-          value={formData.username}
+          value={username}
           onChange={handleChange}
           className="border p-2 rounded"
         />
@@ -66,7 +69,7 @@ export default function RegistrationForm() {
           type="email"
           name="email"
           placeholder="Email"
-          value={formData.email}
+          value={email}
           onChange={handleChange}
           className="border p-2 rounded"
         />
@@ -74,7 +77,7 @@ export default function RegistrationForm() {
           type="password"
           name="password"
           placeholder="Password"
-          value={formData.password}
+          value={password}
           onChange={handleChange}
           className="border p-2 rounded"
         />
