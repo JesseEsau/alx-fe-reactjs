@@ -24,7 +24,7 @@ export default function RegistrationForm() {
     e.preventDefault();
 
     // Basic validation
-    if (!username || !email || !password) {
+    if ((!username) || (!email) || (!password)) {
       setErrors("All fields are required!");
       return;
     }
