@@ -10,7 +10,7 @@ export default function RegistrationForm() {
   const email = formData.email;
   const password = formData.password;
 
-  const [errors, setErrors] = useState();
+  const [errors, setErrors] = useState("");
   const [success, setSuccess] = useState("");
 
   const handleChange = (e) => {
@@ -24,8 +24,16 @@ export default function RegistrationForm() {
     e.preventDefault();
 
     // Basic validation
-    if ((!username) || (!email) || (!password)) {
-      setErrors("All fields are required!");
+    if (!username) {
+      setErrors("username is required!");
+      return;
+    }
+    if (!email) {
+      setErrors("Email is required!");
+      return;
+    }
+    if (!password) {
+      setErrors("password is required!")
       return;
     }
     setErrors("");
