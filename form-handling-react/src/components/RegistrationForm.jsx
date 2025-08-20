@@ -10,7 +10,7 @@ export default function RegistrationForm() {
   const email = formData.email;
   const password = formData.password;
 
-  const [error, setError] = useState("");
+  const [errors, setErrors] = useState();
   const [success, setSuccess] = useState("");
 
   const handleChange = (e) => {
@@ -25,10 +25,10 @@ export default function RegistrationForm() {
 
     // Basic validation
     if (!username || !email || !password) {
-      setError("All fields are required!");
+      setErrors("All fields are required!");
       return;
     }
-    setError("");
+    setErrors("");
 
     try {
       // Mock API call
@@ -42,10 +42,10 @@ export default function RegistrationForm() {
         setSuccess("User registered successfully!");
         setFormData({ username: "", email: "", password: "" });
       } else {
-        setError("Failed to register user.");
+        setErrors("Failed to register user.");
       }
     } catch (err) {
-      setError("Something went wrong.");
+      setErrors("Something went wrong.");
     }
   };
 
@@ -53,7 +53,7 @@ export default function RegistrationForm() {
     <div className="max-w-sm mx-auto p-4 border rounded">
       <h2 className="text-lg font-bold mb-2">Controlled Registration Form</h2>
 
-      {error && <p className="text-red-500">{error}</p>}
+      {errors && <p className="text-red-500">{errors}</p>}
       {success && <p className="text-green-500">{success}</p>}
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-3">
